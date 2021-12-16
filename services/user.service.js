@@ -66,6 +66,9 @@ exports.createUser = async function (user) {
 
     try {
         // Saving the User 
+
+        userExistente = await User.findOne({email:user.email})
+        if(!userExistente){
         var savedUser = await newUser.save();
         var token = jwt.sign({
             id: savedUser._id
@@ -73,6 +76,7 @@ exports.createUser = async function (user) {
             expiresIn: 86400 // expires in 24 hours
         });
         return token;
+        }
     } catch (e) {
         // return a Error message describing the reason 
         console.log(e)    
