@@ -52,7 +52,6 @@ exports.getPreguntaSeguridad = async function (query, page, limit) {
 
 exports.createvacuna = async function (vacuna) {
     // Creating a new Mongoose Object by using the new keyword
-    console.log('v')
     var newvacuna = new Vacuna({
         nombreHijo: vacuna.nombreHijo,
         fechaVacunacion: vacuna.fechaVacunacion,
@@ -65,11 +64,17 @@ exports.createvacuna = async function (vacuna) {
 
 
     try {
-        vacunaExistente = await Vacuna.findOne({nombreHijo: vacuna.nombreHijo, vacuna: vacuna.vacuna, dosis: vacuna.dosis, emailUsuario: vacuna.emailUsuario})
+        console.log('entra al try');
+        var vacunaExistente = await Vacuna.findOne({nombreHijo: vacuna.nombreHijo, vacuna: vacuna.vacuna, dosis: vacuna.dosis, emailUsuario: vacuna.emailUsuario})
+        // console.log('vacunaexistente', vacunaExistente)
         if(!vacunaExistente){
         var savedVacuna = await newvacuna.save();
         return (savedVacuna);
-    }
+        }
+        else{
+            throw Error("Error")  
+        }
+    
     } catch (e) {
         // return a Error message describing the reason 
         console.log(e)    
