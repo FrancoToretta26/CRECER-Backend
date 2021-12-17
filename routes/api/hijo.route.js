@@ -13,7 +13,7 @@ router.get('/test', function(req, res, next) {
   });
 router.post('/agregarHijo', HijoController.createHijo)
 router.get('/',Authorization, HijoController.getHijos)
-router.put('/HijoByName', HijoController.getHijosByName)
+router.put('/HijoByMail', HijoController.getHijosByMail)
 router.put('/', Authorization, HijoController.updateHijo)
 router.put('/updateHijo', HijoController.updateHijo)
 

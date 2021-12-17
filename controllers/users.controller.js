@@ -90,7 +90,6 @@ exports.updateUser = async function (req, res, next) {
         name: req.body.name ? req.body.name : null,
         password: req.body.password ? req.body.password : null,
         email: req.body.email ? req.body.email : null,
-        preguntaSeguridad: req.body.preguntaSeguridad ? req.body.preguntaSeguridad : null,
     }
     try {
         var updatedUser = await UserService.updateUser(User)

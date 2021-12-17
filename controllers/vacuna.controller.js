@@ -43,7 +43,6 @@ exports.createvacuna = async function (req, res, next) {
         lugar: req.body.lugar,
         vacuna: req.body.vacuna,
         dosis: req.body.dosis,
-        vacunaAlternativa: req.body.vacunaAlternativa,
         emailUsuario: req.body.emailUsuario
     
 

@@ -19,7 +19,7 @@ exports.getHijos = async function (req, res, next) {
         return res.status(400).json({status: 400, message: e.message});
     }
 }
-exports.getHijosByName = async function (req, res, next) {
+exports.getHijosByMail = async function (req, res, next) {
 
     // Check the existence of the query parameters, If doesn't exists assign a default value
     var page = req.query.page ? req.query.page : 1
@@ -48,10 +48,7 @@ exports.createHijo = async function (req, res, next) {
         grupoSanguineo: req.body.grupoSanguineo,
         alergias: req.body.alergias,
         enfermedades: req.body.enfermedades,
-        dni: req.body.dni,
         edad: req.body.edad,
-        vacunas: req.body.vacunas,
-        controlesMedicos: req.body.controlesMedicos,
         emailUsuario: req.body.emailUsuario,
 
 

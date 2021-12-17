@@ -41,10 +41,7 @@ exports.createHijo = async function (hijo) {
         alergias: hijo.alergias,
         enfermedades: hijo.enfermedades,
         edad: hijo.edad,
-        vacunas: hijo.vacunas,
-        controlesMedicos: hijo.controlesMedicos,
         emailUsuario: hijo.emailUsuario,
-        DNI: hijo.DNI,
     })
 
     try {
