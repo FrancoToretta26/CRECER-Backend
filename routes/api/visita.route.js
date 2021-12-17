@@ -10,8 +10,7 @@ var Authorization = require('../../auth/authorization');
 router.get('/test', function(req, res, next) {
     res.send('Llegaste a la ruta de  api/visita.routes');
   });
-router.post('/registration', VisitaController.createvisita)
-router.post('/login/', VisitaController.loginvisita)
+router.post('/addVisita', VisitaController.createvisita)
 router.get('/getvisitas', VisitaController.getvisitas)
 router.post('/visitaByMail', VisitaController.getvisitasByMail)
 router.put('/updatevisita', VisitaController.updatevisita)

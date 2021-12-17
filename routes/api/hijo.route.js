@@ -12,14 +12,10 @@ router.get('/test', function(req, res, next) {
     res.send('Llegaste a la ruta de  api/Hijo.routes');
   });
 router.post('/agregarHijo', HijoController.createHijo)
-router.post('/login/', HijoController.loginHijo)
 router.get('/',Authorization, HijoController.getHijos)
 router.put('/HijoByName', HijoController.getHijosByName)
 router.put('/', Authorization, HijoController.updateHijo)
 router.delete('/:id', Authorization, HijoController.removeHijo)
-router.post('/guardarImgHijo',HijoController.guardarImagenHijo)
-router.post('/uploadImg',UploadController.uploadFilesImgUser);
-router.post('/imgHijoByMail',Authorization,HijoController.getImagenHijoByMail)
 router.put('/updateHijo', HijoController.updateHijo)
 router.post('/nombreHijo', HijoController.nombresHijos)
 

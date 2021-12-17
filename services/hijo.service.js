@@ -64,31 +64,6 @@ exports.createHijo = async function (hijo) {
     }
 }
 
-exports.updateVacuna = async function (hijo) {
-    
-    var id = {name :hijo.name}
-    console.log(id)
-    try {
-        //Find the old User Object by the Id
-        var oldUser = await Hijo.findOne(id);
-        console.log(oldUser)
-    } catch (e) {
-        throw Error("Error occured while Finding the User")
-    }
-    // If no old User Object exists return false
-    if (!oldUser) {
-        return false;
-    }
-    //Edit the User Object
-    oldUser.vacunas = oldUser.vacunas + hijo.vacunas
-
-    try {
-        var savedUser = await oldUser.save()
-        return savedUser;
-    } catch (e) {
-        throw Error("And Error occured while updating the User");
-    }
-}
 
 exports.nombresHijos = async function (hijo) {
     
@@ -155,30 +130,4 @@ exports.deleteHijo = async function (id) {
     } catch (e) {
         throw Error("Error Occured while Deleting the Hijo")
     }
-}
-
-
-exports.loginHijo = async function (Hijo) {
-
-    // Creating a new Mongoose Object by using the new keyword
-    try {
-        // Find the Hijo 
-        console.log("login:",Hijo)
-        var _details = await Hijo.findOne({
-            email: Hijo.email
-        });
-        var passwordIsValid = bcrypt.compareSync(Hijo.password, _details.password);
-        if (!passwordIsValid) throw Error("Invalid Hijoname/password")
-
-        var token = jwt.sign({
-            id: _details._id
-        }, process.env.SECRET, {
-            expiresIn: 86400 // expires in 24 hours
-        });
-        return {token:token, Hijo:_details};
-    } catch (e) {
-        // return a Error message describing the reason     
-        throw Error("Error while Login Hijo")
-    }
-
 }

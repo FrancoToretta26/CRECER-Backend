@@ -118,25 +118,4 @@ exports.removevacuna = async function (req, res, next) {
 }
 
 
-exports.vacunaExistente = async function (req, res, next) {
-    // Req.Body contains the form submit values.
-    console.log("body",req.body)
-    var vacuna = {
-        emailUsuario: req.body.emailUsuario,
-        vacuna: req.body.vacuna,
-        dosis: req.body.dosis,
-        nombreHijo: req.body.nombreHijo
-    }
-    console.log('vacunaController', vacuna)
-    try {
-        var loginvacuna = await VacunaService.vacunaExistente(vacuna);
-        return res.status(201).json({loginvacuna, message: "Succesfully Vacuna"})
-    } catch (e) {
-        //Return an Error Response Message with Code and the Error Message.
-        return res.status(400).json({status: 400, message: "Algo anda mal"})
-    }
-}
-
-
-
     

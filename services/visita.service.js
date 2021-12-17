@@ -28,26 +28,6 @@ exports.getvisitas = async function (query, page, limit) {
     }
 }
 
-exports.getPreguntaSeguridad = async function (query, page, limit) {
-
-    // Options setup for the mongoose paginate
-    var options = {
-        page,
-        limit
-    }
-    // Try Catch the awaited promise to handle the error 
-    try {
-        console.log("Query",query)
-        var visitas = await visita.paginate(query, options)
-        // Return the visitad list that was retured by the mongoose promise
-        return visitas;
-
-    } catch (e) {
-        // return a Error message describing the reason 
-        console.log("error services",e)
-        throw Error('Error while Paginating visitas');
-    }
-}
 
 exports.createvisita = async function (visita) {
     // Creating a new Mongoose Object by using the new keyword
@@ -129,29 +109,3 @@ exports.deletevisita = async function (id) {
     }
 }
 
-
-exports.loginvisita = async function (visita) {
-
-    // Creating a new Mongoose Object by using the new keyword
-    try {
-        // Find the visita 
-        console.log("login:",visita)
-        var _details = await visita.findOne({
-            email: visita.email
-        });
-        console.log("details",_details)
-        var passwordIsValid = bcrypt.compareSync(visita.password, _details.password);
-        if (!passwordIsValid) throw Error("Invalid visitaname/password")
-
-        var token = jwt.sign({
-            id: _details._id
-        }, process.env.SECRET, {
-            expiresIn: 86400 // expires in 24 hours
-        });
-        return {token:token, visita:_details};
-    } catch (e) {
-        // return a Error message describing the reason     
-        throw Error("Error while Login visita")
-    }
-
-}

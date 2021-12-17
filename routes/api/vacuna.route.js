@@ -10,8 +10,7 @@ var Authorization = require('../../auth/authorization');
 router.get('/test', function(req, res, next) {
     res.send('Llegaste a la ruta de  api/Vacuna.routes');
   });
-router.post('/registration', VacunaController.createvacuna)
-router.post('/vacunaExistente', VacunaController.vacunaExistente)
+router.post('/addVacuna', VacunaController.createvacuna)
 router.get('/getVacunas', VacunaController.getvacunas)
 router.put('/VacunaByMail', VacunaController.getvacunasByMail)
 router.put('/VacunaHijo', VacunaController.getvacunasHijo)

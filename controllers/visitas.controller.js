@@ -104,23 +104,5 @@ exports.removevisita = async function (req, res, next) {
 }
 
 
-exports.loginvisita = async function (req, res, next) {
-    // Req.Body contains the form submit values.
-    console.log("body",req.body)
-    var visita = {
-        email: req.body.email,
-        password: req.body.password
-    }
-    try {
-        // Calling the Service function with the new object from the Request Body
-        var loginvisita = await visitaService.loginvisita(visita);
-        return res.status(201).json({loginvisita, message: "Succesfully login"})
-    } catch (e) {
-        //Return an Error Response Message with Code and the Error Message.
-        return res.status(400).json({status: 400, message: "Invalid visitaname or password"})
-    }
-}
-
-
 
     
