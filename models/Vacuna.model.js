@@ -8,7 +8,6 @@ var VacunaSchema = new mongoose.Schema({
     lugar: String,
     fechaVacunacion: Date,
     dosis: String,
-    vacunaAlternativa: String,
     emailUsuario: String,
 })
 

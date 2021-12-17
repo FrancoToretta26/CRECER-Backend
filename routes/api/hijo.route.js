@@ -15,9 +15,7 @@ router.post('/agregarHijo', HijoController.createHijo)
 router.get('/',Authorization, HijoController.getHijos)
 router.put('/HijoByName', HijoController.getHijosByName)
 router.put('/', Authorization, HijoController.updateHijo)
-router.delete('/:id', Authorization, HijoController.removeHijo)
 router.put('/updateHijo', HijoController.updateHijo)
-router.post('/nombreHijo', HijoController.nombresHijos)
 
 
 

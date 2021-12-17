@@ -93,19 +93,3 @@ exports.updatevisita = async function (visita) {
 }
 
 
-exports.deletevisita = async function (id) {
-
-    // Delete the visita
-    try {
-        var deleted = await visita.remove({
-            _id: id
-        })
-        if (deleted.n === 0 && deleted.ok === 1) {
-            throw Error("visita Could not be deleted")
-        }
-        return deleted;
-    } catch (e) {
-        throw Error("Error Occured while Deleting the visita")
-    }
-}
-

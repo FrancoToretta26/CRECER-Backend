@@ -14,7 +14,6 @@ router.post('/addVisita', VisitaController.createvisita)
 router.get('/getvisitas', VisitaController.getvisitas)
 router.post('/visitaByMail', VisitaController.getvisitasByMail)
 router.put('/updatevisita', VisitaController.updatevisita)
-router.delete('/:id', Authorization, VisitaController.removevisita)
 
 
 

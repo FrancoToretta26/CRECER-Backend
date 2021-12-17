@@ -65,28 +65,6 @@ exports.createHijo = async function (hijo) {
 }
 
 
-exports.nombresHijos = async function (hijo) {
-    
-    var id = {emailUsuario :hijo.emailUsuario}
-    try {
-        //Find the old User Object by the Id
-        var Hijos = await Hijo.find(id)
-    } catch (e) {
-        throw Error("Error occured while Finding the User")
-    }
-    // If no old User Object exists return false
-    if (!Hijos) {
-        return false;
-    }
-    //Edit the User Object
-
-    try {
-        console.log(Hijos)
-        return Hijos
-    } catch (e) {
-        throw Error("And Error occured while updating the User");
-    }
-}
 
 exports.updateHijo = async function (hijo) {
     console.log('entre al controller')
@@ -116,18 +94,3 @@ exports.updateHijo = async function (hijo) {
     }
 }
 
-exports.deleteHijo = async function (id) {
-
-    // Delete the Hijo
-    try {
-        var deleted = await Hijo.remove({
-            _id: id
-        })
-        if (deleted.n === 0 && deleted.ok === 1) {
-            throw Error("Hijo Could not be deleted")
-        }
-        return deleted;
-    } catch (e) {
-        throw Error("Error Occured while Deleting the Hijo")
-    }
-}

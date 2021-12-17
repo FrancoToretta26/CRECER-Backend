@@ -13,9 +13,6 @@ router.get('/test', function(req, res, next) {
 router.post('/addVacuna', VacunaController.createvacuna)
 router.get('/getVacunas', VacunaController.getvacunas)
 router.put('/VacunaByMail', VacunaController.getvacunasByMail)
-router.put('/VacunaHijo', VacunaController.getvacunasHijo)
-router.put('/updateVacuna', VacunaController.updatevacuna)
-router.delete('/:id', Authorization, VacunaController.removevacuna)
 
 
 
