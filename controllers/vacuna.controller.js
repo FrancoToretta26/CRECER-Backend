@@ -37,7 +37,6 @@ exports.getvacunasByMail = async function (req, res, next) {
 
 exports.createvacuna = async function (req, res, next) {
     // Req.Body contains the form submit values.
-    console.log("llegue al controller",req.body)
     var vacuna = {
         nombreHijo: req.body.nombreHijo,
         fechaVacunacion: req.body.fechaVacunacion,

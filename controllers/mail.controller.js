@@ -26,7 +26,6 @@ exports.sendMail = async function (req, res, next){
         html: '<h1> El codigo para recuperar su contraseña es: </h1><h3>' +codigo+'</h3>',
         
     };
-    console.log("mail",mailOptions)
     // Enviamos el email
     try
     {

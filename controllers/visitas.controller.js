@@ -37,7 +37,6 @@ exports.getvisitasByMail = async function (req, res, next) {
 
 exports.createvisita = async function (req, res, next) {
     // Req.Body contains the form submit values.
-    console.log("llegue al controller",req.body)
     var visita = {
         nombreHijo: req.body.nombreHijo,
         horarioVisita: req.body.horarioVisita,
@@ -83,7 +82,6 @@ exports.updatevisita = async function (req, res, next) {
         email: req.body.email ? req.body.email : null,
         preguntaSeguridad: req.body.preguntaSeguridad ? req.body.preguntaSeguridad : null,
     }
-    console.log(visita)
     try {
         var updatedvisita = await visitaService.updatevisita(visita)
         return res.status(200).json({status: 200, data: updatedvisita, message: "Succesfully Updated visita"})

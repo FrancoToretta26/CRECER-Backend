@@ -46,7 +46,6 @@ exports.createvacuna = async function (vacuna) {
     try {
         console.log('entra al try');
         var vacunaExistente = await Vacuna.findOne({nombreHijo: vacuna.nombreHijo, vacuna: vacuna.vacuna, dosis: vacuna.dosis, emailUsuario: vacuna.emailUsuario})
-        // console.log('vacunaexistente', vacunaExistente)
         if(!vacunaExistente){
         var savedVacuna = await newvacuna.save();
         return (savedVacuna);

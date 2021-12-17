@@ -25,7 +25,6 @@ exports.getHijosByName = async function (req, res, next) {
     var page = req.query.page ? req.query.page : 1
     var limit = req.query.limit ? req.query.limit : 10;
     let filtro= {emailUsuario: req.body.emailUsuario}
-    console.log(filtro)
     try {
         var Hijos = await Hijoservice.getHijos(filtro, page, limit)
         // Return the Hijos list with the appropriate HTTP password Code and Message.
@@ -38,7 +37,6 @@ exports.getHijosByName = async function (req, res, next) {
 
 exports.createHijo = async function (req, res, next) {
     // Req.Body contains the form submit values.
-    console.log("llegue al controller",req.body)
     var Hijo = {
         
         name: req.body.name,
@@ -62,7 +60,6 @@ exports.createHijo = async function (req, res, next) {
     try {
         // Calling the Service function with the new object from the Request Body
         var createdHijo = await Hijoservice.createHijo(Hijo)
-        console.log("entre al try")
         return res.status(201).json({createdHijo, message: "Succesfully Created Hijo"})
         
     } catch (e) {
@@ -87,7 +84,6 @@ exports.updateHijo = async function (req, res, next) {
         altura: req.body.altura ? req.body.altura : null,
         diametroCabeza: req.body.diametroCabeza ? req.body.diametroCabeza : null,
     }
-    console.log('entre a Hijo en controller', Hijo)
     try {
         var updatedHijo = await Hijoservice.updateHijo(Hijo)
         return res.status(200).json({status: 200, data: updatedHijo, message: "Succesfully Updated Hijo"})

@@ -43,7 +43,6 @@ exports.getPreguntaSeguridad = async function (req, res, next) {
     let filtro= {dni: req.body.dni}
     try {
         var Users = await UserService.getPreguntaSeguridad(filtro, page, limit)
-        console.log(Users)
         // Return the Users list with the appropriate HTTP password Code and Message.
         return res.status(200).json({Users, message: "Succesfully Users Recieved"});
     } catch (e) {
@@ -55,7 +54,6 @@ exports.getPreguntaSeguridad = async function (req, res, next) {
 
 exports.createUser = async function (req, res, next) {
     // Req.Body contains the form submit values.
-    console.log("llegue al controller",req.body)
     var User = {
         name: req.body.name,
         email: req.body.email,
@@ -94,7 +92,6 @@ exports.updateUser = async function (req, res, next) {
         email: req.body.email ? req.body.email : null,
         preguntaSeguridad: req.body.preguntaSeguridad ? req.body.preguntaSeguridad : null,
     }
-    console.log(User)
     try {
         var updatedUser = await UserService.updateUser(User)
         return res.status(200).json({status: 200, data: updatedUser, message: "Succesfully Updated User"})
@@ -117,7 +114,6 @@ exports.removeUser = async function (req, res, next) {
 
 exports.loginUser = async function (req, res, next) {
     // Req.Body contains the form submit values.
-    console.log("body",req.body)
     var User = {
         email: req.body.email,
         password: req.body.password
@@ -134,7 +130,6 @@ exports.loginUser = async function (req, res, next) {
 
 exports.guardarImagenUser = async function (req, res, next) {
 
-    console.log("ImgUser",req.body)
     // Id is necessary for the update
     if (!req.body.email) {
         return res.status(400).json({status: 400., message: "Mail must be present"})
